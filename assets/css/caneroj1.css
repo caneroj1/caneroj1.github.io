@@ -1,4 +1,7 @@
-h1
+h1,
+h2,
+h3,
+h4
 {
   font-weight: 200;
 }
@@ -21,9 +24,19 @@ a
   display: none;
 }
 
+.fadeInFromScroll
+{
+  opacity: 0;
+}
+
 .icon
 {
   vertical-align: middle;
   margin-right: 1%;
   font-size: 2rem !important;
+}
+
+.rounded-corner
+{
+  border-radius:15px;
 }
