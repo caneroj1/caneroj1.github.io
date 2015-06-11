@@ -1,0 +1,29 @@
+h1
+{
+  font-weight: 200;
+}
+
+a
+{
+  font-weight: 300;
+}
+
+.me
+{
+  box-shadow: 3px 3px 3px #2d2d2d;
+  margin-top: 15%;
+  width: 75%;
+}
+
+#main-content,
+#my-info
+{
+  display: none;
+}
+
+.icon
+{
+  vertical-align: middle;
+  margin-right: 1%;
+  font-size: 2rem !important;
+}
