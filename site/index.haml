@@ -103,6 +103,49 @@
               that streams videos of my drumming. This was my first exposure to setting up a virtual machine on my own, and I learned
               how to set up nginx and Phusion Passenger in order to serve the application. I also utilize Amazon Web Services to stream
               videos stored in S3 using a CloudFront distribution.
+    .container#about
+      .row
+        .col.m8.offset-m2.s12.center-align
+          %h2.white-text#about-me.fadeInFromScroll About Me
+        .col.m8.offset-m2.s12.center-align
+          %h3.white-text#previous-work.fadeInFromScroll Where have I worked?
+        .col.m6.s12.work-cards.fadeInFromScroll#card-1
+          .card
+            .card-image
+              %img{ src: "assets/images/frontrush.png" }
+              %span.card-title.black-text Front Rush
+            .card-content
+              %p
+                Front Rush is a software company focused on athletics. They make tools to help college coaches
+                during the recruiting process, as well as tools for high school athletes to get noticed by coaches.
+            .card-action
+              %p
+                When?
+                %small May 2014 - August 2014
+              %p
+                Skills used
+                %small Ruby, Ruby on Rails, HTML (Haml), CSS (SASS), Javascript/jQuery (Coffeescript), postgreSQL
+              %a{ href: "http://www.frontrush.com/web/" } go to Front Rush
+        .col.m6.s12.work-cards.fadeInFromScroll#card-2
+          .card
+            .card-image
+              %img{ src: "assets/images/cabect.png" }
+              %span.card-title.black-text TCNJ Muse
+            .card-content
+              %p
+                TCNJ Muse is an undergraduate summer research opportunity. I researched social computation
+                and human computation, and developed a web app, called Cabect. The app is a "gamified" research project
+                repository for multidisciplinary Computer Science projects.
+
+                The research and work from Muse was continued throughout that academic year as my capstone project.
+            .card-action
+              %p
+                When?
+                %small June 2013 - May 2014
+              %p
+                Skills used
+                %small PHP, postgreSQL, HTML, CSS, Javascript, UML
+              %a{ href: "http://www.tardis.tcnj.edu/cabect" } go to CABECT
     %script{ type: "text/javascript", src: "https://code.jquery.com/jquery-2.1.1.min.js" }
     %script{ type: "text/javascript", src: "assets/js/materialize.min.js" }
     %script{ type: "text/javascript", src: "assets/js/index.js" }
