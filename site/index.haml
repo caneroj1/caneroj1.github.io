@@ -31,9 +31,31 @@
         .col.s12.center-align.fadeInFromScroll#project-1
           .col.m6.s12
             %img.materialboxed.responsive-img.rounded-corner{ src: "assets/images/gitGraph.png" }
-          .col.m6.s12
+          .col.m6.s12.white-text
             %a.white-text{ href: "https://github.com/caneroj1/GitGraph" }
               %h4 GitGraph
+            %p.left-align
+              A visualization project for various GitHub statistics, such as commits per day or bytes written per language,
+              GitGraph is written in Ruby and uses Chart.js for creating graphs. It is packaged as a gem and is intended to be
+              highly extensible and is written in a very modular fashion.
+      .row.project-row
+        .col.s12.center-align.fadeInFromScroll#project-2
+          .col.m6.s12.white-text
+            %a.white-text{ href: "https://github.com/caneroj1/team-ios" }
+              %h4 Musicians Wanted
+            %p
+              Musicians Wanted is an iOS app written for finding local musicians and promoting events.
+              The app was designed and implemented during TCNJ's Spring 2015 Cloud Computing class. The application uses
+              Amazon Web Services for its infrastructure, specifically S3, RDS, among others.
+            %br
+            %a.white-text{ href: "https://github.com/caneroj1/musiciansWantedAPI" }
+              %h4 MW API
+            %p
+              The iOS app leverages a Ruby on Rails API to handle backend transactions, like
+              user authentication, account management, posting of events, and other actions. The API uses
+              postgreSQL as its DB and is hosted on a Linode VM.
+          .col.m6.s12
+            %img.materialboxed.responsive-img.rounded-corner{ src: "assets/images/musicianswanted.png" }
     %script{ type: "text/javascript", src: "https://code.jquery.com/jquery-2.1.1.min.js" }
     %script{ type: "text/javascript", src: "assets/js/materialize.min.js" }
     %script{ type: "text/javascript", src: "assets/js/index.js" }

@@ -6,7 +6,8 @@ h4
   font-weight: 200;
 }
 
-a
+a,
+p
 {
   font-weight: 300;
 }
@@ -16,6 +17,11 @@ a
   box-shadow: 3px 3px 3px #2d2d2d;
   margin-top: 15%;
   width: 75%;
+}
+
+.project-row
+{
+  margin-top: 10%;
 }
 
 #main-content,
