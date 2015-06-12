@@ -10,6 +10,9 @@ $(function() {
       $(this).prependTo(this.parentNode);
     });
   }
+  else {
+    moveSkillsAway()
+  }
 
   var card1Left = $('#card-1').position().left;
   var card2Left = $('#card-2').position().left;
@@ -28,6 +31,10 @@ $(function() {
     { selector: '#about-me', offset: 0, callback: 'displayAboutMe()' },
     { selector: '.work-cards', offset: 0, callback: 'displayPreviousWorks()'},
     { selector: '#previous-work', offset: 0, callback: 'displayWork()' },
+    { selector: '#interests', offset: 0, callback: 'displayInterest()' },
+    { selector: '#sr1', offset: 0, callback: 'moveRowOne()' },
+    { selector: '#sr2', offset: 0, callback: 'moveRowTwo()' },
+    { selector: '#sr3', offset: 0, callback: 'moveRowThree()' },
   ];
   Materialize.scrollFire(options);
 });
@@ -90,4 +97,67 @@ function displayWork() {
   $('#previous-work').animate({
     opacity: 1
   }, 2300);
+}
+
+function displayInterest() {
+  $('#interests').animate({
+    opacity: 1
+  }, 2300);
+}
+
+function moveSkillsAway() {
+  var left = 0, right = 0, mid = 0;
+  $('.left-skill').each(function() {
+    left = $(this).position().left;
+    $(this).offset({ left: left - 100});
+  });
+
+  $('.mid-skill').each(function() {
+    mid = $(this).position().top;
+    $(this).offset({ top: mid - 50});
+  });
+
+  $('.right-skill').each(function() {
+    right = $(this).position().left;
+    $(this).offset({ left: right + 100});
+  });
+}
+
+function moveRowOne() {
+  $('#sr1').animate({
+    opacity: 1
+  }, 2300)
+
+  $('#sr1 > div').each(function() {
+    $(this).animate({
+      left: 0,
+      top: 0
+    }, 2300)
+  })
+}
+
+function moveRowTwo() {
+  $('#sr2').animate({
+    opacity: 1
+  }, 2300)
+
+  $('#sr2 > div').each(function() {
+    $(this).animate({
+      left: 0,
+      top: 0
+    }, 2300)
+  })
+}
+
+function moveRowThree() {
+  $('#sr3').animate({
+    opacity: 1
+  }, 2300)
+
+  $('#sr3 > div').each(function() {
+    $(this).animate({
+      left: 0,
+      top: 0
+    }, 2300)
+  })
 }

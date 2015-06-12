@@ -67,3 +67,41 @@ a
 {
   color: #81C784 !important;
 }
+
+.ruby
+{
+  width:45%;
+}
+
+.java
+{
+  width:70%;
+}
+
+.cpp
+{
+  width: 55%;
+}
+
+.rails,
+.postgres
+{
+  width:65%;
+}
+
+.js,
+.html,
+.swift
+{
+  width:60%;
+}
+
+.css
+{
+  width:45%;
+}
+
+.skill-row
+{
+  margin-top: 5%;
+}
