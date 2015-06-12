@@ -56,3 +56,9 @@ p
 {
   width: 10%;
 }
+
+@media (max-width: 600px) {
+  .my-name {
+    margin-bottom: 0;
+  }
+}

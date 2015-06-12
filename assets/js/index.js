@@ -1,4 +1,17 @@
 $(function() {
+  var mq = window.matchMedia( "(max-width: 600px)" );
+
+  // rearrange some of the elements so they look better on mobile
+  if(mq.matches) {
+    $('#project-2 > div').each(function() {
+      $(this).prependTo(this.parentNode);
+    });
+
+    $('#project-3 > div').each(function() {
+      $(this).prependTo(this.parentNode);
+    });
+  }
+
   $('#main-content').fadeIn(1500);
   $('#my-info').delay(500).fadeIn(1500);
   var options = [
