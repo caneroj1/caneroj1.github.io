@@ -6,7 +6,8 @@ $(function() {
     { selector: '#project-1', offset: 0, callback: 'displayProject1()' },
     { selector: '#project-2', offset: 0, callback: 'displayProject2()' },
     { selector: '#project-3', offset: 0, callback: 'displayProject3()' },
-    { selector: '#project-4', offset: 0, callback: 'displayProject4()' }
+    { selector: '#project-4', offset: 0, callback: 'displayProject4()' },
+    { selector: '#project-5', offset: 0, callback: 'displayProject5()' }
   ];
   Materialize.scrollFire(options);
 });
@@ -37,6 +38,12 @@ function displayProject3() {
 
 function displayProject4() {
   $('#project-4').animate({
+    opacity: 1
+  }, 2300);
+}
+
+function displayProject5() {
+  $('#project-5').animate({
     opacity: 1
   }, 2300);
 }
