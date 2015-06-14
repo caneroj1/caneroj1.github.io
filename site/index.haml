@@ -5,6 +5,30 @@
     %link{ type: "text/css", rel: "stylesheet", href: "assets/octicons/octicons.css", media: "screen,projection"}
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" }
   %body.green.lighten-2
+    .navbar-fixed
+      %nav
+        .nav-wrapper
+          %a.brand-logo Joe Canero
+          %a.button-collapse{ href:"#", data: { activates:"mobile-demo" } }
+            %i.mdi-navigation-menu
+          %ul#nav-mobile.right.hide-on-med-and-down
+            %li
+              %a.nav-link{ href: "sass.html" }
+                Blog
+                %i.mdi-editor-mode-comment.left
+            %li
+              %a.nav-link{ href: "components.html" }
+                Resume
+                %i.mdi-image-portrait.left
+          %ul#mobile.side-nav
+            %li
+              %a.nav-link{ href: "sass.html" }
+                Blog
+                %i.mdi-editor-mode-comment.left
+            %li
+              %a.nav-link{ href: "components.html" }
+                Resume
+                %i.mdi-image-portrait.left
     .container
       .row
         .col.m6.offset-m3.s12.center-align#main-content

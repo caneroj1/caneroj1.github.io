@@ -15,7 +15,6 @@ p
 .me
 {
   box-shadow: 3px 3px 3px #2d2d2d;
-  margin-top: 15%;
   width: 75%;
 }
 
@@ -109,4 +108,21 @@ a
 .cabect-strip
 {
   border-top: 1px solid rgba(160,160,160,0.2);
+}
+
+nav
+{
+  opacity: 0;
+  background-color: #1b5e20 !important;
+}
+
+.nav-link,
+.brand-logo
+{
+  color: white !important;
+}
+
+.brand-logo
+{
+  margin-left: 1%;
 }

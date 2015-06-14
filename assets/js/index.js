@@ -1,4 +1,5 @@
 $(function() {
+  scrollIntervalID = setInterval(stickIt, 10);
   var mq = window.matchMedia( "(max-width: 600px)" );
   // rearrange some of the elements so they look better on mobile
   if(mq.matches) {
@@ -160,4 +161,23 @@ function moveRowThree() {
       top: 0
     }, 2300)
   })
+}
+
+function stickIt() {
+  var orgElementPos = $('.my-name').offset();
+  orgElementTop = orgElementPos.top;
+
+  if ($(window).scrollTop() >= (orgElementTop)) {
+    if ($('nav').css('opacity') == 0) {
+      $('nav').animate({
+        opacity: 1
+      }, 500);
+    }
+  } else {
+    if ($('nav').css('opacity') == 1) {
+      $('nav').animate({
+        opacity: 0
+      }, 500);
+    }
+  }
 }
