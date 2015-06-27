@@ -6,14 +6,14 @@
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" }
   %body.green.lighten-2
     .navbar-fixed
-      %nav
+      %nav.home-nav
         .nav-wrapper
-          %a.brand-logo Joe Canero
+          %a.brand-logo{ href: "./index.html" } Joe Canero
           %a.button-collapse{ href:"#", data: { activates:"mobile-demo" } }
             %i.mdi-navigation-menu
           %ul#nav-mobile.right.hide-on-med-and-down
             %li
-              %a.nav-link{ href: "sass.html" }
+              %a.nav-link{ href: "./blog/blog.html" }
                 Blog
                 %i.mdi-editor-mode-comment.left
             %li

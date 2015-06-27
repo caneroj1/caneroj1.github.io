@@ -1,13 +1,15 @@
 h1,
 h2,
 h3,
-h4
+h4,
+td
 {
   font-weight: 200;
 }
 
 a,
-p
+p,
+th
 {
   font-weight: 300;
 }
@@ -112,8 +114,12 @@ a
 
 nav
 {
-  opacity: 0;
   background-color: #1b5e20 !important;
+}
+
+.home-nav
+{
+  opacity: 0;
 }
 
 .nav-link,
@@ -125,4 +131,26 @@ nav
 .brand-logo
 {
   margin-left: 1%;
+}
+
+.blog-link
+{
+  font-weight: 200;
+  color: white !important;
+  cursor: pointer;
+}
+
+.blog-pic
+{
+  width: 50%;
+}
+
+.super
+{
+  margin: 0;
+}
+
+.no-padding
+{
+  padding: 0;
 }
