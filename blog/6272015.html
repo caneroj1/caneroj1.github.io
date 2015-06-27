@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+    <link href='../assets/css/materialize.min.css' media='screen,projection' rel='stylesheet' type='text/css'>
+    <link href='../assets/css/caneroj1.css' media='screen,projection' rel='stylesheet' type='text/css'>
+    <link href='../assets/octicons/octicons.css' media='screen,projection' rel='stylesheet' type='text/css'>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'>
+  </head>
+  <body class='green lighten-2'>
+    <div class='navbar-fixed'>
+      <nav>
+        <div class='nav-wrapper'>
+          <a class='brand-logo' href='../index.html'>Joe Canero</a>
+          <a class='button-collapse' data-activates='mobile-demo' href='#'>
+            <i class='mdi-navigation-menu'></i>
+          </a>
+          <ul class='right hide-on-med-and-down' id='nav-mobile'>
+            <li>
+              <a class='nav-link' href='./blog.html'>
+                Blog
+                <i class='mdi-editor-mode-comment left'></i>
+              </a>
+            </li>
+            <li>
+              <a class='nav-link' href='../assets/resume/resume.pdf'>
+                Resume
+                <i class='mdi-image-portrait left'></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class='container'>
+      <div class='row'>
+        <div class='col m10 offset-m1 s12 center-align project-row valign-wrapper'>
+          <div class='col m2 offset-m3 s12 center-align no-padding'>
+            <img class='blog-pic' src='../assets/images/rbpi.ico'>
+          </div>
+          <div class='col m2 s12 center-align no-padding white-text'>
+            <h1 class='super'>+</h1>
+          </div>
+          <div class='col m2 s12 center-align no-padding'>
+            <img class='blog-pic' src='../assets/images/beer.png'>
+          </div>
+        </div>
+        <div class='col s12 center-align project-row white-text'>
+          <h1 class='no-top-margin'>Beer Fridge of Awesomeness</h1>
+          <p class='flow-text'>
+            The "Beer Fridge of Awesomeness" is a cool project I found on
+            <a class='blog-link' href='https://github.com/InitialState/beerfridge'>Github</a>
+            that walks you through using a Raspberry Pi to build your very own smart beer fridge!
+            The Beer Fridge can detect when it's open, measure its temperature and count the number of bottles inside.
+          </p>
+        </div>
+        <div class='col s12 center-align project-row white-text start'>
+          <div class='col m6'>
+            <h3>First Things First</h3>
+            <p class='flow-text'>
+              I've never used a Raspberry Pi, so first I had to get my Ultimate Starter Kit. The project has
+              a pretty long list of required parts, so I had to order those as well.
+            </p>
+          </div>
+          <div class='col m6'>
+            <img class='blog-post-pic' src='../assets/images/6272015setup.jpg'>
+          </div>
+        </div>
+        <div class='col s12 center-align project-row white-text'>
+          <h2>The Pi is Almost Done</h2>
+          <img class='blog-post-pic' src='../assets/images/6272015rbpi.jpg' style='width: 50%;'>
+          <p class='flow-text'>
+            Installing Raspbian, the default Raspberry Pi OS was pretty simple. There's a tool called
+            NOOBS,
+            <small>seriously,</small>
+            that pretty much does it for you.
+          </p>
+        </div>
+        <div class='col s12 center-align project-row white-text'>
+          <h2>Next Steps</h2>
+          <p class='flow-text'>
+            The Raspberry Pi needed some way to count the number of bottles in the fridge, so I had to
+            connect the Raspberry Pi, via bluetooth, to a Wii Fit Balance Board and place the fridge on top.
+            Then I was able to measure the weight of the fridge.
+          </p>
+          <img class='blog-post-pic' src='../assets/images/6272015wii.jpg' style='width: 60%;'>
+          <br>
+          <br>
+          <p class='flow-text'>
+            The next step was to start wiring everything up.
+            Some of the parts necessary for the beer fridge to be totally awesome include a temperature sensor
+            and a door sensor. Getting these working with the Raspberry Pi was the most difficult part of the project,
+            and required a steady hand. Below is the fully wired Pi.
+          </p>
+          <img class='blog-post-pic' src='../assets/images/6272015fridge.jpg' style='width: 60%;'>
+        </div>
+        <div class='col s12 center-align project-row white-text'>
+          <h2>Finishing Up</h2>
+          <div class='col m6'>
+            <p class='flow-text'>
+              All the sensors were working at this point, so it was time to fill the fridge! As I mentioned before, you should fill
+              the fridge with beverages that all weigh pretty much the same. After loading up on Summer Shandy, I weighed the fridge with
+              the bottles inside in order to determine each bottle's weight.
+            </p>
+          </div>
+          <div class='col m6'>
+            <img class='blog-post-pic' src='../assets/images/6272015beer.jpg' style='width: 60%;'>
+          </div>
+        </div>
+        <div class='col s12 center-align project-row white-text'>
+          <h2>Project Complete!</h2>
+          <p class='flow-text'>
+            Finally, the tutorial sets you up on a neat visualization dashboard where you can see the status of your beer fridge and monitor
+            things like temperature and the number of bottles inside.
+          </p>
+          <img class='blog-post-pic' src='../assets/images/6272015final.png' style='width:80%;'>
+        </div>
+        <div class='col s12 center-align project-row white-text'>
+          <h2>Closing Remarks</h2>
+          <p class='flow-text'>
+            In the end, I thought the Beer Fridge of Awesomeness was a nice project to help me kill some time. It was my first exposure
+            to working with a Raspberry Pi, and I learned a fair amount about setting up circuits and other hardware. I'm on the lookout for my next
+            project!
+          </p>
+        </div>
+      </div>
+      <script src='https://code.jquery.com/jquery-2.1.1.min.js' type='text/javascript'></script>
+      <script src='../assets/js/materialize.min.js' type='text/javascript'></script>
+    </div>
+  </body>
+</html>

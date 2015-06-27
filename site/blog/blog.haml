@@ -1,0 +1,43 @@
+%html
+  %head
+    %link{ href: "https://fonts.googleapis.com/icon?family=Material+Icons", rel: "stylesheet" }
+    %link{ type: "text/css", rel: "stylesheet", href: "../assets/css/materialize.min.css", media: "screen,projection" }
+    %link{ type: "text/css", rel: "stylesheet", href: "../assets/css/caneroj1.css", media: "screen,projection" }
+    %link{ type: "text/css", rel: "stylesheet", href: "../assets/octicons/octicons.css", media: "screen,projection"}
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" }
+  %body.green.lighten-2
+    .navbar-fixed
+      %nav
+        .nav-wrapper
+          %a.brand-logo{ href: "../index.html" } Joe Canero
+          %a.button-collapse{ href:"#", data: { activates:"mobile-demo" } }
+            %i.mdi-navigation-menu
+          %ul#nav-mobile.right.hide-on-med-and-down
+            %li
+              %a.nav-link{ href: "./blog.html" }
+                Blog
+                %i.mdi-editor-mode-comment.left
+            %li
+              %a.nav-link{ href: "../assets/resume/resume.pdf" }
+                Resume
+                %i.mdi-image-portrait.left
+    .container
+      .row
+        .col.m8.offset-m2.s12.center-align
+          %h1.white-text Recent Posts
+          %table.table-responsive.bordered.white-text
+            %thead
+              %tr
+                %th
+                  %i.material-icons.dp48 today
+                %th
+                  %i.material-icons.dp48 description
+            %tbody
+              %tr
+                %td
+                  6/27/2015
+                %td
+                  %a.blog-link{ href: "6272015.html" }
+                    Building the awesome Beer Fridge
+  %script{ type: "text/javascript", src: "https://code.jquery.com/jquery-2.1.1.min.js" }
+  %script{ type: "text/javascript", src: "../assets/js/materialize.min.js" }

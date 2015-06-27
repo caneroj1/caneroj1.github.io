@@ -142,15 +142,32 @@ nav
 
 .blog-pic
 {
-  width: 50%;
+  width: 80%;
 }
 
 .super
 {
   margin: 0;
+  font-size:9rem;
+}
+
+.no-top-margin
+{
+  margin-top: 0;
 }
 
 .no-padding
 {
   padding: 0;
+}
+
+.blog-post-pic
+{
+  width:90%;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.start
+{
+  margin-top: 17%;
 }
