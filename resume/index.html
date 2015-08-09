@@ -1,0 +1,44 @@
+---
+layout: home
+js_file: index
+---
+
+<div class="row">
+  <div id="parallax-container" class="parallax-container">
+    <div class="parallax valign-wrapper">
+      <div class="full-width">
+        <h1 class="white-text center-align">
+          Joseph Canero
+        </h1>
+        <h3 class="white-text center-align">
+          Software Engineer
+        </h3>
+      </div>
+      <img class="responsive-img parallax-header" src="images/splash.png">
+    </div>
+  </div>
+  {% include splash_header.html %}
+  <div class="overflow">
+    <div class="col s12 m10 offset-m1 center-align">
+      <h2 class='section-title'>About Me</h2>
+      {% include index/about_me.html %}
+    </div>
+  </div>
+  <div class="overflow section-space lighten pad">
+    {% include index/more_details.html %}
+  </div>
+  <div class="overflow section-space center-align">
+    <h2>Projects</h2>
+    {% include projects/git_graph.html %}
+    {% include projects/musicians_wanted.html %}
+    {% include projects/git_recommender.html %}
+    {% include projects/dojob.html %}
+    {% include projects/valentines.html %}
+  </div>
+  <div class="overflow section-space lighten pad center-align">
+    {% include index/work.html %}
+  </div>
+  <div class="overflow section-space-reduced pad center-align">
+    {% include index/contact.html %}
+  </div>
+</div>
