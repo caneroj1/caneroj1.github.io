@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming with Joe Canero</title>
+    <title>Joe Canero</title>
     <description>Joe Canero&#39;s developer site. Check out his blog and his code samples.
 </description>
     <link>caneroj1.github.io/</link>
     <atom:link href="caneroj1.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 09 Aug 2015 09:57:34 -0400</pubDate>
-    <lastBuildDate>Sun, 09 Aug 2015 09:57:34 -0400</lastBuildDate>
+    <pubDate>Sun, 09 Aug 2015 10:01:06 -0400</pubDate>
+    <lastBuildDate>Sun, 09 Aug 2015 10:01:06 -0400</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
