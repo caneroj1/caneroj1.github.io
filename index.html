@@ -1,297 +1,44 @@
-<html>
-  <head>
-    <link href='assets/css/materialize.min.css' media='screen,projection' rel='stylesheet' type='text/css'>
-    <link href='assets/css/caneroj1.css' media='screen,projection' rel='stylesheet' type='text/css'>
-    <link href='assets/octicons/octicons.css' media='screen,projection' rel='stylesheet' type='text/css'>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'>
-  </head>
-  <body class='green lighten-2'>
-    <div class='navbar-fixed'>
-      <nav class='home-nav'>
-        <div class='nav-wrapper'>
-          <a class='brand-logo' href='./index.html'>Joe Canero</a>
-          <a class='button-collapse' data-activates='mobile-demo' href='#'>
-            <i class='mdi-navigation-menu'></i>
-          </a>
-          <ul class='right hide-on-med-and-down' id='nav-mobile'>
-            <li>
-              <a class='nav-link' href='./blog/blog.html'>
-                Blog
-                <i class='mdi-editor-mode-comment left'></i>
-              </a>
-            </li>
-            <li>
-              <a class='nav-link' href='../assets/resume/resume.pdf'>
-                Resume
-                <i class='mdi-image-portrait left'></i>
-              </a>
-            </li>
-          </ul>
-          <ul class='side-nav' id='mobile'>
-            <li>
-              <a class='nav-link' href='./blog/blog.html'>
-                Blog
-                <i class='mdi-editor-mode-comment left'></i>
-              </a>
-            </li>
-            <li>
-              <a class='nav-link' href='../assets/resume/resume.pdf'>
-                Resume
-                <i class='mdi-image-portrait left'></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+---
+layout: home
+js_file: index
+---
+
+<div class="row">
+  <div id="parallax-container" class="parallax-container">
+    <div class="parallax valign-wrapper">
+      <div class="full-width">
+        <h1 class="white-text center-align">
+          Joseph Canero
+        </h1>
+        <h3 class="white-text center-align">
+          Software Engineer
+        </h3>
+      </div>
+      <img class="responsive-img parallax-header" src="images/splash.png">
     </div>
-    <div class='container'>
-      <div class='row'>
-        <div class='col m6 offset-m3 s12 center-align' id='main-content'>
-          <img class='responsive-img circle me' src='assets/images/caneroj1.jpg'>
-          <h1 class='white-text my-name'>Joe Canero</h1>
-        </div>
-        <div class='col s12 m6 offset-m3 center-align' id='my-info'>
-          <p>
-            <a class='white-text' href='mailto:caneroj1@tcnj.edu'>
-              <i class='small mdi-communication-email icon'></i>
-              caneroj1@tcnj.edu
-            </a>
-          </p>
-          <p>
-            <a class='white-text' href='https://github.com/caneroj1'>
-              <span class='octicon octicon-mark-github icon'></span>
-              caneroj1
-            </a>
-          </p>
-          <p>
-            <a class='white-text' href='https://www.linkedin.com/in/josephcanero'>
-              <img class='responsive-img icon linked' src='assets/images/linked.png'>
-              Joseph Canero
-            </a>
-          </p>
-          <p>
-            <a class='white-text'>
-              <i class='small mdi-communication-location-on icon'></i>
-              New Jersey, New York, Philadelphia area
-            </a>
-          </p>
-        </div>
-      </div>
+  </div>
+  {% include splash_header.html %}
+  <div class="overflow">
+    <div class="col s12 m10 offset-m1 center-align">
+      <h2 class='section-title'>About Me</h2>
+      {% include index/about_me.html %}
     </div>
-    <div class='container' id='projects'>
-      <div class='row'>
-        <div class='col m8 offset-m2 s12 center-align'>
-          <h2 class='white-text fadeInFromScroll' id='my-projects'>My Projects</h2>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col s12 center-align fadeInFromScroll' id='project-1'>
-          <div class='col m6 s12'>
-            <img class='materialboxed responsive-img rounded-corner' src='assets/images/gitGraph.png'>
-          </div>
-          <div class='col m6 s12 white-text'>
-            <a class='white-text' href='https://github.com/caneroj1/GitGraph'>
-              <h4>GitGraph</h4>
-            </a>
-            <p class='left-align'>
-              A visualization project for various GitHub statistics, such as commits per day or bytes written per language,
-              GitGraph is written in Ruby and uses Chart.js for creating graphs. It is packaged as a gem and is intended to be
-              highly extensible and is written in a very modular fashion.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class='row project-row'>
-        <div class='col s12 center-align fadeInFromScroll' id='project-2'>
-          <div class='col m6 s12 white-text'>
-            <a class='white-text' href='https://github.com/caneroj1/team-ios'>
-              <h4>Musicians Wanted</h4>
-            </a>
-            <p>
-              Musicians Wanted is an iOS app written for finding local musicians and promoting events.
-              The app was designed and implemented during TCNJ's Spring 2015 Cloud Computing class. The application uses
-              Amazon Web Services for its infrastructure, specifically S3, RDS, among others.
-            </p>
-            <br>
-            <a class='white-text' href='https://github.com/caneroj1/musiciansWantedAPI'>
-              <h4>MW API</h4>
-            </a>
-            <p>
-              The iOS app leverages a Ruby on Rails API to handle backend transactions, like
-              user authentication, account management, posting of events, and other actions. The API uses
-              postgreSQL as its DB and is hosted on a Linode VM. This was my second exposure to setting up nginx and Phusion Passenger on an
-              Ubuntu VM in order to serve a Ruby app. My first experience with DevOps, my Valentine's Day Project, is found below.
-            </p>
-          </div>
-          <div class='col m6 s12'>
-            <img class='materialboxed responsive-img rounded-corner' src='assets/images/musicianswanted.png'>
-          </div>
-        </div>
-      </div>
-      <div class='row project-row'>
-        <div class='col s12 center-align fadeInFromScroll' id='project-3'>
-          <div class='col m6 s12'>
-            <img class='materialboxed responsive-img rounded-corner' src='assets/images/gitRec1.png'>
-            <p class='white-text margin-top'>
-              GitRecommender is incomplete as of now. The original implementation also utilized Decision Trees, and I haven't gotten around
-              to putting those in yet. The final goal is to use k-NN and Decision Trees to come up with precision recommendations. The recommender works by
-              computing what languages users code in the most and comparing that to the languages of random repositories. Similar repositories are scored more highly
-              than dissimilar ones. Another metric that is used in the recommender is keyword score. Users enter up to 5 keywords, and the recommender checks for the existence
-              of those keywords in the readmes it is analyzing.
-            </p>
-          </div>
-          <div class='col m6 s12 white-text'>
-            <a class='white-text' href='https://github.com/caneroj1/gitRecommenderRails'>
-              <h4>GitRecommender</h4>
-            </a>
-            <p>
-              GitRecommender is a GitHub recommendation system written in Rails that uses postgreSQL for its db.
-              There are a lot of charts and visualization aspects present throughout the recommender, and I use Chart.js for all of the graphs.
-              GitRecommender arose out of TCNJ's Spring 2015 Artifical Intelligence course, and it uses k-NN for calculating distance between repositories.
-            </p>
-            <img class='materialboxed responsive-img rounded-corner' src='assets/images/gitRec2.png'>
-          </div>
-        </div>
-      </div>
-      <div class='row project-row'>
-        <div class='col s12 center-align fadeInFromScroll' id='project-4'>
-          <div class='col s12'>
-            <a class='white-text' href='https://github.com/caneroj1/dojob'>
-              <h4>DoJob</h4>
-            </a>
-            <img class='materialboxed responsive-img rounded-corner' src='assets/images/dojob.png'>
-          </div>
-          <div class='col s12 m8 offset-m2'>
-            <p class='white-text center-align'>
-              DoJob is a fully-functional Rails site build for a business competition at TCNJ. The aim is to empower college students
-              to find jobs, like walking dogs or mowing lawns, in their local community. The site allows users to search for jobs, chat with other users,
-              and arrange for jobs. In addition to that functionality, there is a wide array of skill surveys for things like Pet Care that allow users to
-              specify their credentials. This was my first exposure with Elasticsearch and Faye, and the site was designed entirely by me.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class='row project-row'>
-        <div class='col s12 center-align fadeInFromScroll' id='project-5'>
-          <div class='col s12'>
-            <a class='white-text' href='https://github.com/caneroj1/vday-proj'>
-              <h4>Valentine's Day Project</h4>
-            </a>
-            <img class='materialboxed responsive-img rounded-corner' src='assets/images/valday.png'>
-          </div>
-          <div class='col s12 m8 offset-m2'>
-            <p class='white-text center-align'>
-              This was my Valentine's Day, 2015 gift for my girlfriend. It is a postgreSQL-backed, Sinatra application
-              that streams videos of my drumming. This was my first exposure to setting up a virtual machine on my own, and I learned
-              how to set up nginx and Phusion Passenger in order to serve the application. I also utilize Amazon Web Services to stream
-              videos stored in S3 using a CloudFront distribution.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class='container' id='about'>
-      <div class='row'>
-        <div class='col m8 offset-m2 s12 center-align'>
-          <h2 class='white-text fadeInFromScroll' id='about-me'>About Me</h2>
-        </div>
-        <div class='col m8 offset-m2 s12 center-align'>
-          <h3 class='white-text fadeInFromScroll' id='previous-work'>Where have I worked?</h3>
-        </div>
-        <div class='col m6 s12 work-cards fadeInFromScroll' id='card-1'>
-          <div class='card'>
-            <div class='card-image'>
-              <img src='assets/images/frontrush.png'>
-              <span class='card-title black-text'>Front Rush</span>
-            </div>
-            <div class='card-content'>
-              <p>
-                Front Rush is a software company focused on athletics. They make tools to help college coaches
-                during the recruiting process, as well as tools for high school athletes to get noticed by coaches.
-              </p>
-            </div>
-            <div class='card-action'>
-              <p>
-                When?
-                <small>May 2014 - August 2014</small>
-              </p>
-              <p>
-                Skills used
-                <small>Ruby, Ruby on Rails, HTML (Haml), CSS (SASS), Javascript/jQuery (Coffeescript), postgreSQL</small>
-              </p>
-              <a href='http://www.frontrush.com/web/'>go to Front Rush</a>
-            </div>
-          </div>
-        </div>
-        <div class='col m6 s12 work-cards fadeInFromScroll' id='card-2'>
-          <div class='card'>
-            <div class='card-image'>
-              <img src='assets/images/cabect.png'>
-              <span class='card-title black-text'>TCNJ Muse</span>
-            </div>
-            <div class='card-content cabect-strip'>
-              <p>
-                TCNJ Muse is an undergraduate summer research opportunity. I researched social computation
-                and human computation, and developed a web app, called Cabect. The app is a "gamified" research project
-                repository for multidisciplinary Computer Science projects.
-                The research and work from Muse was continued throughout that academic year as my capstone project.
-              </p>
-            </div>
-            <div class='card-action'>
-              <p>
-                When?
-                <small>June 2013 - May 2014</small>
-              </p>
-              <p>
-                Skills used
-                <small>PHP, postgreSQL, HTML, CSS, Javascript, UML</small>
-              </p>
-              <a href='http://www.tardis.tcnj.edu/cabect'>go to CABECT</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col m8 offset-m2 s12 center-align'>
-          <h2 class='white-text fadeInFromScroll' id='interests'>Tech Skills</h2>
-        </div>
-        <div class='col s12 center-align skill-row fadeInFromScroll' id='sr1'>
-          <div class='col s12 m4 left-skill'>
-            <img class='ruby' src='assets/images/ruby.png'>
-          </div>
-          <div class='col s12 m4 mid-skill'>
-            <img class='java' src='assets/images/java.png'>
-          </div>
-          <div class='col s12 m4 right-skill'>
-            <img class='cpp' src='assets/images/c++.png'>
-          </div>
-        </div>
-        <div class='col s12 center-align skill-row fadeInFromScroll' id='sr2'>
-          <div class='col s12 m4 left-skill'>
-            <img class='swift' src='assets/images/swift.png'>
-          </div>
-          <div class='col s12 m4 mid-skill'>
-            <img class='rails' src='assets/images/rails.png'>
-          </div>
-          <div class='col s12 m4 right-skill'>
-            <img class='js' src='assets/images/javascript.png'>
-          </div>
-        </div>
-        <div class='col s12 center-align skill-row fadeInFromScroll' id='sr3'>
-          <div class='col s12 m4 left-skill'>
-            <img class='html' src='assets/images/html.png'>
-          </div>
-          <div class='col s12 m4 mid-skill'>
-            <img class='css' src='assets/images/css.png'>
-          </div>
-          <div class='col s12 m4 right-skill'>
-            <img class='postgres' src='assets/images/postgres.png'>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src='https://code.jquery.com/jquery-2.1.1.min.js' type='text/javascript'></script>
-    <script src='assets/js/materialize.min.js' type='text/javascript'></script>
-    <script src='assets/js/index.js' type='text/javascript'></script>
-  </body>
-</html>
+  </div>
+  <div class="overflow section-space lighten pad">
+    {% include index/more_details.html %}
+  </div>
+  <div class="overflow section-space center-align">
+    <h2>Projects</h2>
+    {% include projects/git_graph.html %}
+    {% include projects/musicians_wanted.html %}
+    {% include projects/git_recommender.html %}
+    {% include projects/dojob.html %}
+    {% include projects/valentines.html %}
+  </div>
+  <div class="overflow section-space lighten pad center-align">
+    {% include index/work.html %}
+  </div>
+  <div class="overflow section-space-reduced pad center-align">
+    {% include index/contact.html %}
+  </div>
+</div>
