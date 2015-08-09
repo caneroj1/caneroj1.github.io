@@ -6,35 +6,110 @@
 </description>
     <link>caneroj1.github.io/</link>
     <atom:link href="caneroj1.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 09 Aug 2015 08:54:23 -0400</pubDate>
-    <lastBuildDate>Sun, 09 Aug 2015 08:54:23 -0400</lastBuildDate>
+    <pubDate>Sun, 09 Aug 2015 09:57:34 -0400</pubDate>
+    <lastBuildDate>Sun, 09 Aug 2015 09:57:34 -0400</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>Awesome Beer Fridge</title>
+        <description>&lt;blockquote&gt;
+  The &quot;Beer Fridge of Awesomeness&quot; is a cool project I found on &lt;a href=&quot;https://github.com/InitialState/beerfridge&quot;&gt;Github&lt;/a&gt;
+  that walks you through using a Raspberry Pi to build your very own smart beer fridge!
+  The Beer Fridge can detect when it&#39;s open, measure its temperature and count the number of bottles inside.
+&lt;/blockquote&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;h3 class=&quot;blog-header&quot;&gt;First Things First&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&quot;col s12 m6&quot;&gt;
+    &lt;p&gt;
+      I&#39;ve never used a Raspberry Pi before, so first I had to get my Ultimate Starter Kit. The project has a pretty long list of required parts, so I had to order those as well.
+    &lt;/p&gt;
+    &lt;p&gt;
+      Amongst other things, I ordered a digital thermometer and some door sensors, and the total cost for everything was around $120.
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col s12 m6&quot;&gt;
+    &lt;img class=&#39;blog-post-pic&#39; src=&#39;/images/6272015setup.jpg&#39;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
-
+&lt;h3 class=&quot;blog-header&quot;&gt;The Pi is Almost Done&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&quot;col s12 m6&quot;&gt;
+    &lt;p&gt;
+      Installing Raspbian, the default Raspberry Pi OS was pretty simple. There&#39;s a tool called
+      NOOBS, that pretty much does it for you.
+    &lt;/p&gt;
+    &lt;p&gt;
+      I was pretty much playing the waiting game at this point.
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col s12 m6&quot;&gt;
+    &lt;img class=&#39;blog-post-pic&#39; src=&#39;/images/6272015rbpi.jpg&#39;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;blog-header&quot;&gt;Next Steps&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;p&gt;
+      The Raspberry Pi needed some way to count the number of bottles in the fridge, so I had to
+      connect the Raspberry Pi, via bluetooth, to a Wii Fit Balance Board and place the fridge on top.
+      Then I was able to measure the weight of the       fridge.
+  &lt;/p&gt;
+  &lt;div class=&quot;center-align&quot;&gt;
+    &lt;img class=&#39;blog-post-pic&#39; src=&#39;/images/6272015wii.jpg&#39; style=&#39;width: 60%;&#39;&gt;
+  &lt;/div&gt;
+  &lt;p&gt;
+      The next step was to start wiring everything up.
+      Some of the parts necessary for the beer fridge to be totally awesome include a temperature sensor
+      and a door sensor. Getting these working with the Raspberry Pi was the most difficult part of the project,
+      and required a steady hand. Below is the fully wired Pi.
+  &lt;/p&gt;
+  &lt;div class=&quot;center-align&quot;&gt;
+    &lt;img class=&#39;blog-post-pic&#39; src=&#39;/images/6272015fridge.jpg&#39; style=&#39;width: 60%;&#39;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;blog-header&quot;&gt;Finishing Up&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&#39;col m6 s12&#39;&gt;
+    &lt;p&gt;
+      All the sensors were working at this point, so it was time to fill the fridge! As I mentioned before, you should fill
+      the fridge with beverages that all weigh pretty much the same. After loading up on Summer Shandy, I weighed the fridge with
+      the bottles inside in order to determine each bottle&#39;s weight.
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&#39;col m6 s12&#39;&gt;
+    &lt;img class=&#39;blog-post-pic&#39; src=&#39;/images/6272015beer.jpg&#39; style=&#39;width: 80%;&#39;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;blog-header&quot;&gt;Project Complete!&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;p&gt;
+      Finally, the tutorial sets you up on a neat visualization dashboard where you can see the status of your beer fridge and monitor
+      things like temperature and the number of bottles inside.
+  &lt;/p&gt;
+  &lt;div class=&quot;center-align&quot;&gt;
+    &lt;img class=&#39;blog-post-pic&#39; src=&#39;/images/6272015final.png&#39; style=&#39;width:80%;&#39;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;blog-header&quot;&gt;Closing Remarks&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;p&gt;
+      In the end, I thought the Beer Fridge of Awesomeness was a nice project to help me kill some time. It was my first exposure
+      to working with a Raspberry Pi, and I learned a fair amount about setting up circuits and other hardware. I&#39;m on the lookout for my next
+      project!
+  &lt;/p&gt;
+&lt;/div&gt;
 </description>
-        <pubDate>Thu, 06 Aug 2015 14:57:10 -0400</pubDate>
-        <link>caneroj1.github.io/jekyll/update/2015/08/06/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">caneroj1.github.io/jekyll/update/2015/08/06/welcome-to-jekyll.html</guid>
+        <pubDate>Sat, 27 Jun 2015 00:00:00 -0400</pubDate>
+        <link>caneroj1.github.io/raspberrypi/node/js/2015/06/27/awesome-beer-fridge.html</link>
+        <guid isPermaLink="true">caneroj1.github.io/raspberrypi/node/js/2015/06/27/awesome-beer-fridge.html</guid>
         
         
-        <category>jekyll</category>
+        <category>raspberrypi</category>
         
-        <category>update</category>
+        <category>node</category>
+        
+        <category>js</category>
         
       </item>
     

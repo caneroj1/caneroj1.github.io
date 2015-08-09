@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Awesome Beer Fridge</title>
+  <meta name="description" content="  The "Beer Fridge of Awesomeness" is a cool project I found on Github  that walks you through using a Raspberry Pi to build your very own smart beer fridge!...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="caneroj1.github.io/raspberrypi/node/js/2015/06/27/awesome-beer-fridge.html">
+  <link rel="alternate" type="application/rss+xml" title="Programming with Joe Canero" href="caneroj1.github.io/feed.xml" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+
+  <body>
+    <header class="site-header">
+  <div class="wrapper">
+    <div id="navfix">
+      <nav>
+        <div class='nav-wrapper'>
+          <a class='brand-logo' href='/index.html'>Joe Canero</a>
+          <a class='button-collapse' data-activates='mobile-demo' href='#'>
+            <i class='mdi-navigation-menu'></i>
+          </a>
+          <ul class='splash-nav-ul hide-on-med-and-down' id='nav-mobile'>
+            <li class="splash-nav-li">
+              <a class='nav-link' href='https://github.com/caneroj1'>
+                <img src="/images/github.png" class="responsive-img icon">
+                Github
+              </a>
+            </li>
+            <li class="splash-nav-li">
+              <a class='nav-link' href='https://twitter.com/JCanero'>
+                <img src="/images/twitter.png" class="responsive-img icon">
+                Twitter
+              </a>
+            </li>
+            <li class="splash-nav-li">
+              <a class='nav-link' href='/blog.html'>
+                Blog
+                <i class='mdi-editor-mode-comment left'></i>
+              </a>
+            </li>
+            <li class="splash-nav-li">
+              <a class='nav-link' href='/resume/resume.pdf'>
+                Resume
+                <i class='mdi-image-portrait left'></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+  </div>
+
+</header>
+
+    <div class="full-width" id="banner" data-title="Awesome Beer Fridge">
+      <div class="row">
+        <div class="col s12 blog-title">
+          <h1>Awesome Beer Fridge</h1>
+          <h4>Jun 27, 2015</h4>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="page-content">
+        <div class="wrapper">
+          <div class="post">
+            <div class="row">
+              <div class="col s10 offset-s1">
+                <article class="post-content">
+                  <blockquote>
+  The "Beer Fridge of Awesomeness" is a cool project I found on <a href="https://github.com/InitialState/beerfridge">Github</a>
+  that walks you through using a Raspberry Pi to build your very own smart beer fridge!
+  The Beer Fridge can detect when it's open, measure its temperature and count the number of bottles inside.
+</blockquote>
+
+<h3 class="blog-header">First Things First</h3>
+<div class="blog-container">
+  <div class="col s12 m6">
+    <p>
+      I've never used a Raspberry Pi before, so first I had to get my Ultimate Starter Kit. The project has a pretty long list of required parts, so I had to order those as well.
+    </p>
+    <p>
+      Amongst other things, I ordered a digital thermometer and some door sensors, and the total cost for everything was around $120.
+    </p>
+  </div>
+  <div class="col s12 m6">
+    <img class='blog-post-pic' src='/images/6272015setup.jpg'>
+  </div>
+</div>
+
+<h3 class="blog-header">The Pi is Almost Done</h3>
+<div class="blog-container">
+  <div class="col s12 m6">
+    <p>
+      Installing Raspbian, the default Raspberry Pi OS was pretty simple. There's a tool called
+      NOOBS, that pretty much does it for you.
+    </p>
+    <p>
+      I was pretty much playing the waiting game at this point.
+    </p>
+  </div>
+  <div class="col s12 m6">
+    <img class='blog-post-pic' src='/images/6272015rbpi.jpg'>
+  </div>
+</div>
+<h3 class="blog-header">Next Steps</h3>
+<div class="blog-container">
+  <p>
+      The Raspberry Pi needed some way to count the number of bottles in the fridge, so I had to
+      connect the Raspberry Pi, via bluetooth, to a Wii Fit Balance Board and place the fridge on top.
+      Then I was able to measure the weight of the       fridge.
+  </p>
+  <div class="center-align">
+    <img class='blog-post-pic' src='/images/6272015wii.jpg' style='width: 60%;'>
+  </div>
+  <p>
+      The next step was to start wiring everything up.
+      Some of the parts necessary for the beer fridge to be totally awesome include a temperature sensor
+      and a door sensor. Getting these working with the Raspberry Pi was the most difficult part of the project,
+      and required a steady hand. Below is the fully wired Pi.
+  </p>
+  <div class="center-align">
+    <img class='blog-post-pic' src='/images/6272015fridge.jpg' style='width: 60%;'>
+  </div>
+</div>
+<h3 class="blog-header">Finishing Up</h3>
+<div class="blog-container">
+  <div class='col m6 s12'>
+    <p>
+      All the sensors were working at this point, so it was time to fill the fridge! As I mentioned before, you should fill
+      the fridge with beverages that all weigh pretty much the same. After loading up on Summer Shandy, I weighed the fridge with
+      the bottles inside in order to determine each bottle's weight.
+    </p>
+  </div>
+  <div class='col m6 s12'>
+    <img class='blog-post-pic' src='/images/6272015beer.jpg' style='width: 80%;'>
+  </div>
+</div>
+<h3 class="blog-header">Project Complete!</h3>
+<div class="blog-container">
+  <p>
+      Finally, the tutorial sets you up on a neat visualization dashboard where you can see the status of your beer fridge and monitor
+      things like temperature and the number of bottles inside.
+  </p>
+  <div class="center-align">
+    <img class='blog-post-pic' src='/images/6272015final.png' style='width:80%;'>
+  </div>
+</div>
+<h3 class="blog-header">Closing Remarks</h3>
+<div class="blog-container">
+  <p>
+      In the end, I thought the Beer Fridge of Awesomeness was a nice project to help me kill some time. It was my first exposure
+      to working with a Raspberry Pi, and I learned a fair amount about setting up circuits and other hardware. I'm on the lookout for my next
+      project!
+  </p>
+</div>
+
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src='https://code.jquery.com/jquery-2.1.1.min.js' type='text/javascript'></script>
+<script
+<script src='/js/materialize.min.js' type='text/javascript'>
+</script>
+<script src="/js/geopattern.min.js" type="text/javascript"></script>
+<script src='/js/post.js' type='text/javascript'>
+</script>
+
+    </div>
+  </body>
+
+</html>

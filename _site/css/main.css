@@ -7953,3 +7953,26 @@ nav {
   border-radius: 5px;
   color: white;
   padding: 2% !important; }
+
+#banner {
+  padding: 1%; }
+
+.blog-title {
+  color: white; }
+
+.post-content a {
+  color: #1b5e20; }
+
+.blog-header {
+  text-align: center;
+  margin-top: 3%; }
+
+.blog-post-pic {
+  width: 90%;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+
+.blog-container {
+  overflow: auto; }
+
+blockquote {
+  border-left: 5px solid #1b5e20; }
