@@ -3,7 +3,7 @@ $(function() {
   var card2Left = $('#card-2').position().left;
   $('#card-1').offset({ left: card1Left - 100});
   $('#card-2').offset({ left: card2Left + 100});
-  
+
   var options = [
     { selector: '#project-1', offset: 0, callback: 'displayProject1()' },
     { selector: '#project-2', offset: 0, callback: 'displayProject2()' },
@@ -26,6 +26,7 @@ $(window).bind('scroll', function () {
 
 $(document).ready(function(){
    $('.parallax').parallax();
+   $(".dropdown-button").dropdown();
 });
 
 function displayProject1() {

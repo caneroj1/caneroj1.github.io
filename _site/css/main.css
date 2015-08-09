@@ -7914,6 +7914,9 @@ nav {
   .section-title {
     margin-top: 9%;
     margin-bottom: 13%; } }
+@media screen and (max-width: 600px) {
+  .parallax-container {
+    height: 300px; } }
 .separator {
   border: solid 1px #1b5e20;
   width: 50%; }

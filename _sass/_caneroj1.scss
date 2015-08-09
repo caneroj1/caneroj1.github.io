@@ -134,6 +134,14 @@ nav
   }
 }
 
+@include media-query($on-palm)
+{
+  .parallax-container
+  {
+    height: 300px;
+  }
+}
+
 .separator
 {
   border: solid 1px $brand-color;

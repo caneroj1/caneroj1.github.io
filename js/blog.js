@@ -10,3 +10,7 @@ function makeBlogBackgrounds() {
     $(this).parent().css('background-image', geoPattern.toDataUrl());
   });
 }
+
+$(document).ready(function(){
+   $(".dropdown-button").dropdown();
+});
