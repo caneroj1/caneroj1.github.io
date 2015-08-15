@@ -1,0 +1,132 @@
+---
+layout: post
+title: "Go Scrabble, Part 1"
+date: 2015-08-15
+categories: go scrabble
+js_file: post
+---
+<blockquote>
+  <a href="https://github.com/caneroj1/scrabble">caneroj1/scrabble</a> is my first foray into the Go programming language. It's a port of my Ruby command-line app for automating keeping score during scrabble. In fact, it's pretty generic and can probably be used for keeping score in any kind of turn-based game. This post will talk about the Go programming language and what I learned on this project.
+</blockquote>
+
+<h2 class="blog-header-2">Prerequisites</h2>
+<h3 class="blog-header">Installing Go</h3>
+<div class="blog-container">
+  <div class="col s12">
+    <p>
+      The Go installation process was pretty painless. I used the Mac OS X Installer available on golang.org's <a href="https://golang.org/doc/install">download page</a>.
+    </p>
+    <p>
+      After that's done, there is some manual setup required. Developing in Go should be done inside a <strong>Go Workspace</strong>, which is just a fancy name for a specific directory structure, but first we need to take care of some organization.
+    </p>
+  </div>
+</div>
+<h3 class="blog-header">Structuring your Workspace</h3>
+<div class="blog-container">
+  <div class="col s12">
+    <p>
+      Go's development toolchain requires things to be structured in a very specific way. So once your install of Go is done, execute this in your terminal
+      {% highlight ruby %}
+          mkdir $HOME/go
+      {% endhighlight %}
+    </p>
+    <p>
+      We're creating our Go workspace inside our $HOME path, which for me is <pre>/Users/jcanero</pre>
+    </p>
+    <p>
+      Feel free to set up your workspace anywhere else, but remember to change the following commands appropriately.
+    </p>
+    <p>
+      Now we need to create the following subdirectories in our workspace.
+      {% highlight ruby %}
+        mkdir $HOME/go bin src pkg
+      {% endhighlight %}
+    </p>
+    <p>
+      The <strong>bin</strong>
+      directory is where all of our executable Go programs will be stored. The <strong>pkg</strong>
+      directory is where any libraries or packages built that can be imported are stored. Finally, <strong>src</strong> is where you will be doing your development.
+    </p>
+    <p>
+      The <strong>src</strong> directory should be structured based on the version control system you are using to version your code. For me, I use GitHub, so run the following in terminal
+      {% highlight ruby %}
+        mkdir -i $HOME/go/src github.com/caneroj1
+      {% endhighlight %}
+    </p>
+    <p>
+      but be sure to replace <strong>caneroj1</strong> with your GitHub account. The last step is to
+      {% highlight ruby %}
+        export GOPATH=$HOME/go
+      {% endhighlight %}
+    </p>
+    <p>
+      This adds your Go workspace to the GOPATH variable, which the Go toolchain requires to function smoothly. You can also
+      {% highlight ruby %}
+        export PATH=$PATH:$GOPATH/bin
+      {% endhighlight %}
+    </p>
+    <p>
+      which adds the <strong>bin</strong> directory of your workspace to your $PATH so you can execute built binaries anywhere. Now that is all taken care of...
+    </p>
+  </div>
+</div>
+<h2 class="blog-header-2">Go Code</h2>
+<h3 class="blog-header">Understanding Imports</h3>
+{% include 2015-08-15/understanding_imports.html %}
+
+<h3 class="blog-header">The Business of Exports</h3>
+<div class="blog-container">
+  <div class="col sm-12">
+    <p>
+      What does it mean for an identifier to exported?
+    </p>
+    <p>
+      Before we can answer that question, we need to first understand what identifiers are.
+    </p>
+    <p>
+      An identifier is usually a keyword, and can be something like a variable name, or a function, or constant declaration.
+      {% highlight go %}
+func add(x, y) int {
+  return x + y
+}
+
+var name string
+      {% endhighlight %}
+    </p>
+    <p>
+      In the above code, <strong>add</strong> is an identifier representing that function, and <strong>name</strong> is an identifier representing a string.
+    </p>
+    <p>
+      There are also a few special types of identifiers in Go. Variable <em>types</em> in Go, such as int, int8, string, uint, and bool are called <strong>predeclared identifiers</strong>, and they are available at what is called the <strong>universe block</strong>, which is, literally, anywhere.
+    </p>
+    <p>
+      Another type of identifier is called the <strong>blank identifier</strong> and that is represented by a single <strong>_</strong>. It is a placeholder for a variable. It can be used in situations like
+      {% highlight go %}
+n := make([]int, 5)
+for _, v := range n {
+  fmt.Println(v)
+}
+      {% endhighlight %}
+    </p>
+    <p>
+      to get only a named reference to each value in <strong>n</strong> through <strong>v</strong> and ignore the first return value of <strong>range</strong>.
+    </p>
+    <p>
+      Now, an exported identifier is an identifier that is accessible across packages. Any identifier is exported if it begins with a capitalized Unicode letter and it is declared at the <strong>package level</strong>.
+      Let's export the code from above.
+      {% highlight go %}
+package test
+
+func Add(x, y int) {
+  return x, y
+}
+
+var Name string
+      {% endhighlight %}
+    </p>
+    <p>
+      As simply as that, we can access the variable <strong>Name</strong> or call the function <strong>Add</strong> from any other package that imports <strong>test</strong>.
+    </p>
+  </div>
+</div>
+<h3 class="blog-header">Part 2 is coming soon!</h3>

@@ -71,9 +71,10 @@ $on-laptop:        800px;
 @import "_materialize.min",
         "layout",
         "caneroj1",
-        "blog";
+        "blog",
+        "syntax";
 
 blockquote
 {
-  border-left: 5px solid $brand-color; 
+  border-left: 5px solid $brand-color;
 }

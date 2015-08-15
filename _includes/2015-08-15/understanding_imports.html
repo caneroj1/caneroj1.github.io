@@ -1,0 +1,41 @@
+<div class="blog-container">
+  <div class="col sm-12">
+    <p>
+      You can easily get the code by executing
+      {% highlight ruby %}
+        go get github.com/caneroj1/scrabble
+      {% endhighlight %}
+    </p>
+    <p>
+      The Go tool will fetch the code from my repo and add it to your workspace.
+    </p>
+    <p>
+      The main code is in the <strong>scrabble.go</strong> file, as denoted by the
+      {% highlight go %}
+        package main
+      {% endhighlight %}
+    </p>
+    <p>
+      at the top. You can see there are quite a few import statements, too.
+      {% include 2015-08-15/imports_go.html %}
+    </p>
+    <p>
+      Importing <strong>fmt</strong> allows us to do things like print to the screen or print interpolated strings, like with
+      {% highlight go %}
+      fmt.Println("Hello World")
+      {% endhighlight %}
+    </p>
+    <p>
+      Or
+      {% highlight go %}
+      fmt.Printf("%d bottles of beer on the wall", 99)
+      {% endhighlight %}
+    </p>
+    <p>
+      Import <strong>os</strong> provides access to functions like <strong>Exit()</strong>, which I use to exit the program when I encounter an error, or variables like <strong>os.Stdin</strong>, which points to the standard input.
+    </p>
+    <p>
+      Importing <strong>strconv</strong> gives us useful functions like <strong>strconv.ParseInt()</strong>. The next three lines are importing code specific to the <strong>github.com/caneroj1/scrabble</strong> repository. If you look inside that directory, you can see there is a <strong>go</strong> directory, containing the <strong>player</strong>, <strong>reader</strong>, and <strong>game</strong> directories. The import statements give us access to exported identifiers in those directories.
+    </p>
+  </div>
+</div>

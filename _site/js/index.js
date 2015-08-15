@@ -13,6 +13,29 @@ $(function() {
     { selector: '.work-cards', offset: 0, callback: 'displayPreviousWorks()'},
   ];
   Materialize.scrollFire(options);
+
+  $('#contact-me').on('submit', function() {
+    var data = {};
+    data.email = $('#email').val();
+    data.subject = $('#subject').val();
+    data.body = $('#body').val();
+
+    $.ajax({
+      method: "POST",
+      data: JSON.stringify(data),
+      url: "http://69.127.113.233",
+      statusCode: {
+        404: function() {
+          console.log("error received");
+        },
+
+        200: function() {
+          console.log("success");
+        }
+      }
+    })
+    return false;
+  });
 });
 
 var num = $('#parallax-container').height();

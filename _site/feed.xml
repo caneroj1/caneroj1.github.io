@@ -6,9 +6,173 @@
 </description>
     <link>caneroj1.github.io/</link>
     <atom:link href="caneroj1.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 09 Aug 2015 10:43:13 -0400</pubDate>
-    <lastBuildDate>Sun, 09 Aug 2015 10:43:13 -0400</lastBuildDate>
+    <pubDate>Sat, 15 Aug 2015 13:54:18 -0400</pubDate>
+    <lastBuildDate>Sat, 15 Aug 2015 13:54:18 -0400</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Go Scrabble, Part 1</title>
+        <description>&lt;blockquote&gt;
+  &lt;a href=&quot;https://github.com/caneroj1/scrabble&quot;&gt;caneroj1/scrabble&lt;/a&gt; is my first foray into the Go programming language. It&#39;s a port of my Ruby command-line app for automating keeping score during scrabble. In fact, it&#39;s pretty generic and can probably be used for keeping score in any kind of turn-based game. This post will talk about the Go programming language and what I learned on this project.
+&lt;/blockquote&gt;
+
+&lt;h2 class=&quot;blog-header-2&quot;&gt;Prerequisites&lt;/h2&gt;
+&lt;h3 class=&quot;blog-header&quot;&gt;Installing Go&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&quot;col s12&quot;&gt;
+    &lt;p&gt;
+      The Go installation process was pretty painless. I used the Mac OS X Installer available on golang.org&#39;s &lt;a href=&quot;https://golang.org/doc/install&quot;&gt;download page&lt;/a&gt;.
+    &lt;/p&gt;
+    &lt;p&gt;
+      After that&#39;s done, there is some manual setup required. Developing in Go should be done inside a &lt;strong&gt;Go Workspace&lt;/strong&gt;, which is just a fancy name for a specific directory structure, but first we need to take care of some organization.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;blog-header&quot;&gt;Structuring your Workspace&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&quot;col s12&quot;&gt;
+    &lt;p&gt;
+      Go&#39;s development toolchain requires things to be structured in a very specific way. So once your install of Go is done, execute this in your terminal
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;go&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      We&#39;re creating our Go workspace inside our $HOME path, which for me is &lt;pre&gt;/Users/jcanero&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      Feel free to set up your workspace anywhere else, but remember to change the following commands appropriately.
+    &lt;/p&gt;
+    &lt;p&gt;
+      Now we need to create the following subdirectories in our workspace.
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pkg&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      The &lt;strong&gt;bin&lt;/strong&gt;
+      directory is where all of our executable Go programs will be stored. The &lt;strong&gt;pkg&lt;/strong&gt;
+      directory is where any libraries or packages built that can be imported are stored. Finally, &lt;strong&gt;src&lt;/strong&gt; is where you will be doing your development.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The &lt;strong&gt;src&lt;/strong&gt; directory should be structured based on the version control system you are using to version your code. For me, I use GitHub, so run the following in terminal
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;go&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;caneroj1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      but be sure to replace &lt;strong&gt;caneroj1&lt;/strong&gt; with your GitHub account. The last step is to
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GOPATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;go&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      This adds your Go workspace to the GOPATH variable, which the Go toolchain requires to function smoothly. You can also
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$GOPATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      which adds the &lt;strong&gt;bin&lt;/strong&gt; directory of your workspace to your $PATH so you can execute built binaries anywhere. Now that is all taken care of...
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;blog-header-2&quot;&gt;Go Code&lt;/h2&gt;
+&lt;h3 class=&quot;blog-header&quot;&gt;Understanding Imports&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&quot;col sm-12&quot;&gt;
+    &lt;p&gt;
+      You can easily get the code by executing
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;caneroj1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrabble&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      The Go tool will fetch the code from my repo and add it to your workspace.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The main code is in the &lt;strong&gt;scrabble.go&lt;/strong&gt; file, as denoted by the
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      at the top. You can see there are quite a few import statements, too.
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;quot;os&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;quot;strconv&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;quot;github.com/caneroj1/scrabble/go/player&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;quot;github.com/caneroj1/scrabble/go/reader&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;quot;github.com/caneroj1/scrabble/go/game&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/p&gt;
+    &lt;p&gt;
+      Importing &lt;strong&gt;fmt&lt;/strong&gt; allows us to do things like print to the screen or print interpolated strings, like with
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      Or
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;%d bottles of beer on the wall&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;99&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      Import &lt;strong&gt;os&lt;/strong&gt; provides access to functions like &lt;strong&gt;Exit()&lt;/strong&gt;, which I use to exit the program when I encounter an error, or variables like &lt;strong&gt;os.Stdin&lt;/strong&gt;, which points to the standard input.
+    &lt;/p&gt;
+    &lt;p&gt;
+      Importing &lt;strong&gt;strconv&lt;/strong&gt; gives us useful functions like &lt;strong&gt;strconv.ParseInt()&lt;/strong&gt;. The next three lines are importing code specific to the &lt;strong&gt;github.com/caneroj1/scrabble&lt;/strong&gt; repository. If you look inside that directory, you can see there is a &lt;strong&gt;go&lt;/strong&gt; directory, containing the &lt;strong&gt;player&lt;/strong&gt;, &lt;strong&gt;reader&lt;/strong&gt;, and &lt;strong&gt;game&lt;/strong&gt; directories. The import statements give us access to exported identifiers in those directories.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;h3 class=&quot;blog-header&quot;&gt;The Business of Exports&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&quot;col sm-12&quot;&gt;
+    &lt;p&gt;
+      What does it mean for an identifier to exported?
+    &lt;/p&gt;
+    &lt;p&gt;
+      Before we can answer that question, we need to first understand what identifiers are.
+    &lt;/p&gt;
+    &lt;p&gt;
+      An identifier is usually a keyword, and can be something like a variable name, or a function, or constant declaration.
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      In the above code, &lt;strong&gt;add&lt;/strong&gt; is an identifier representing that function, and &lt;strong&gt;name&lt;/strong&gt; is an identifier representing a string.
+    &lt;/p&gt;
+    &lt;p&gt;
+      There are also a few special types of identifiers in Go. Variable &lt;em&gt;types&lt;/em&gt; in Go, such as int, int8, string, uint, and bool are called &lt;strong&gt;predeclared identifiers&lt;/strong&gt;, and they are available at what is called the &lt;strong&gt;universe block&lt;/strong&gt;, which is, literally, anywhere.
+    &lt;/p&gt;
+    &lt;p&gt;
+      Another type of identifier is called the &lt;strong&gt;blank identifier&lt;/strong&gt; and that is represented by a single &lt;strong&gt;_&lt;/strong&gt;. It is a placeholder for a variable. It can be used in situations like
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      to get only a named reference to each value in &lt;strong&gt;n&lt;/strong&gt; through &lt;strong&gt;v&lt;/strong&gt; and ignore the first return value of &lt;strong&gt;range&lt;/strong&gt;.
+    &lt;/p&gt;
+    &lt;p&gt;
+      Now, an exported identifier is an identifier that is accessible across packages. Any identifier is exported if it begins with a capitalized Unicode letter and it is declared at the &lt;strong&gt;package level&lt;/strong&gt;.
+      Let&#39;s export the code from above.
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      As simply as that, we can access the variable &lt;strong&gt;Name&lt;/strong&gt; or call the function &lt;strong&gt;Add&lt;/strong&gt; from any other package that imports &lt;strong&gt;test&lt;/strong&gt;.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;blog-header&quot;&gt;Part 2 is coming soon!&lt;/h3&gt;
+</description>
+        <pubDate>Sat, 15 Aug 2015 00:00:00 -0400</pubDate>
+        <link>caneroj1.github.io/go/scrabble/2015/08/15/go-scrabble_part_1.html</link>
+        <guid isPermaLink="true">caneroj1.github.io/go/scrabble/2015/08/15/go-scrabble_part_1.html</guid>
+        
+        
+        <category>go</category>
+        
+        <category>scrabble</category>
+        
+      </item>
     
       <item>
         <title>Awesome Beer Fridge</title>

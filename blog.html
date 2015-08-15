@@ -3,13 +3,13 @@ layout: default
 js_file: blog
 ---
 
+{% for post in site.posts %}
 <div class="row">
-  {% for post in site.posts %}
   <a href="{{ post.url }}">
     <div class="col s12 blog-post">
       <h2 class="blog-title" data-title="{{ post.title }}">{{ post.title }}</h2>
       <h4>{{ post.date | date: '%B %d, %Y' }}</h4>
     </div>
   </a>
-  {% endfor %}
 </div>
+{% endfor %}
