@@ -1,0 +1,125 @@
+---
+layout: post
+title: "The Meaning of Programs"
+date: 2015-08-17
+categories: ruby theory
+js_file: post
+---
+
+<blockquote>
+My most recent purchase is the book <a href="http://computationbook.com">Understanding Computation</a> by Tom Stuart, an easy-to-digest text on computer science theory. I first heard about this book on Thoughtbot's programming podcast, <a href="https://robots.thoughtbot.com">Giants Robots Smashing Into Other Giant Robots</a>, where it was pitched as a theoretical handbook with practical examples all written in Ruby. I'll be going through the book and blogging about what I learn.
+</blockquote>
+
+<h2 class="blog-header-2">What is a program?</h2>
+<h3 class="blog-header">A program is...</h3>
+<div class="blog-container">
+  <div class="col s12">
+    <p>
+      Basically a sequence of instructions given to the computer in order specify how to accomplish a given task. This task can range from something like
+      {% highlight ruby %}
+      puts "Hello, World!"
+      {% endhighlight %}
+    </p>
+    <p>
+      to something with millions of lines of code all doing various complicated things. But we shouldn't write a program with the intention of doing something complicated and hard to understand&mdash;the best programs spring forth from inspiration and are the concretization of ideas.
+    </p>
+  </div>
+</div>
+
+<h3 class="blog-header">Hey, I've written a program. Now what?</h3>
+<div class="blog-container">
+  <div class="col s12">
+    <p>
+      Maybe you just coded your first program, or perhaps it was your thousandth, but it's still always good to take a step back after you've finished the job and look at what you've done. Ask yourself: what did I just do (it happens more than you'd think), or does this program actually do what I want it to?
+    </p>
+    <p>
+      There are a few ways of answering these questions, each with varying complexity, practicality, and expressiveness. But the easiest one, and probably the one you've been doing the whole time you were writing the program, is to just read the source code. If your program is small to moderately-sized, doing so allows you to see the structure of your program and how all of the pieces fit together. If your program is larger, maybe run through a few use cases and trace the code by hand. Just by reading the source code, I can usually find more than a few bugs, and sometimes I mark down spots where I know I will have to come back and refactor. But how do you understand programs on a higher level?
+    </p>
+  </div>
+</div>
+<h2 class="blog-header-2">Syntax and Semantics</h2>
+<h3 class="blog-header">Let's Get Theoretical</h3>
+<div class="blog-container">
+  <div class="col s12">
+    <p>
+      In order to understand programs, we need to understand the languages in which they are written. And to do so, we require an understanding of two things: syntax and semantics.
+      The <strong>syntax</strong> of a language describes its structure and appearance, and the <strong>semantics</strong> details its meaning, and how its various constructs, such as words and phrases, fit together, and relate to the things they represent.
+    </p>
+    <p>
+      Once you have the syntax and semantics of a language specified, you can do one of three things. The first thing is what Ruby does: create a reference implementation.
+    </p>
+    <p>
+      A reference implementation is a programmatic specification of how that language should behave. For example, Ruby has MRI (Matz's Ruby Interpreter), which is basically the Ruby canon. Reference implementations are useful for describing languages becaue they explicitly show the outputs for given inputs.
+    </p>
+    <p>
+      The second thing one can do to describe a language is literally write out a formal description of that language. Some of the languages that have formal, written specifications include Java and ECMAScript. These documents are often quite deliberate and technical, and can include things such as formulas for how type inference works, or a description of the language's keywords.
+    </p>
+    <p>
+      Or, if one is into this sort of thing, a language can be described mathematically. This is probably the most rigorous and obscure way to describe a language, but it is unambiguous and lends itself to a few different useful things, like automated analysis of the language or even proofs of program correctness.
+    </p>
+  </div>
+</div>
+
+<h3 class="blog-header">Syntax City</h3>
+<div class="blog-container">
+  <div class="col s12">
+    <p>
+      As I said before, syntax describes the structure and appearance of a language. But more specifically, it describes how to actually <strong>write</strong> the code for a given language, and specifies what a "correct" program looks like. It says you can't do something like
+      {% highlight ruby %}
+      sum = 1 + 2 + 3 7
+      {% endhighlight %}
+    </p>
+    <p>
+      because there is nothing connecting that 3 to the 7&mdash;it's not syntactically correct. It also provides rules on how to evaluate ambiguous code and for operator precedence. Like how we have the order of operations in math, Ruby's syntax dictates that
+      {% highlight ruby %}
+      1 + 2 * 3 / 6 - 0
+      {% endhighlight %}
+    </p>
+    <p>
+      evaluates to 2.
+    </p>
+    <p>
+      Even though syntax very clearly states what's right and wrong in any given programming language, we don't want to do all of that checking by hand. That's where the <strong>parser</strong> comes in. It takes as input the source code and turns it into a structured representation of that program, an <strong>abstract syntax tree</strong>. But there is no one way to understand the meaning behind a program given only the syntax.
+    </p>
+  </div>
+</div>
+<h3 class="blog-header">The Semantics</h3>
+<div class="blog-container">
+  <div class="col s12">
+    <p>
+       As was mentioned in the beginning of the article, you should be asking yourself: "Does this program do what I want it to do?" Just look at the inputs and see if the outputs are what you expect. But this can be taken to a higher level and provide a framework for analyzing what languages themselves do. That higher level is known as <strong>operational semantics</strong>.
+    </p>
+    <p>
+      The operational semantics behind any language is a set of rules that govern how the constructs of that language interact and behave, and most often, these rules are written as if they would be run on an <strong>abstract machine</strong>. This abstract machine allows us to explicitly capture and explain the behavior of a programming language.
+    </p>
+    <p>
+      One way of creating an operational semantics is to use what is known as <strong>small-step semantics</strong>, which is essentially an abstract machine that looks at the syntax of a program, reduces constructs and statements, and produces a final value. For example, a small-step semantics may state that in a series of nested function calls, they be executed in an inner-outer order. The small-step semantics of Ruby, for example, may state that
+      {% highlight ruby %}
+def inner
+  "inside"
+end
+
+def middle(string)
+  "middle #{string}"
+end
+
+def outer(string)
+  "outer #{string}"
+end
+
+puts outer(middle(inner))
+      {% endhighlight %}
+    </p>
+    <p>
+      evaluates to "outer middle inside" instead of something else, even though all potential versions are syntactically correct.
+    </p>
+  </div>
+</div>
+
+<div class="blog-container">
+  <div class="col s12">
+    <p>
+      We can see that there a few different ways of understanding what a program means, from highly rigorous and specific mathematical formulations to programmatic implementations. And to truly understand a programming language, one must know both the syntax and semantics, and how they relate to each other.
+    </p>
+  </div>
+</div>

@@ -6,9 +6,132 @@
 </description>
     <link>caneroj1.github.io/</link>
     <atom:link href="caneroj1.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 15 Aug 2015 13:54:18 -0400</pubDate>
-    <lastBuildDate>Sat, 15 Aug 2015 13:54:18 -0400</lastBuildDate>
+    <pubDate>Mon, 17 Aug 2015 20:55:34 -0400</pubDate>
+    <lastBuildDate>Mon, 17 Aug 2015 20:55:34 -0400</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>The Meaning of Programs</title>
+        <description>&lt;blockquote&gt;
+My most recent purchase is the book &lt;a href=&quot;http://computationbook.com&quot;&gt;Understanding Computation&lt;/a&gt; by Tom Stuart, an easy-to-digest text on computer science theory. I first heard about this book on Thoughtbot&#39;s programming podcast, &lt;a href=&quot;https://robots.thoughtbot.com&quot;&gt;Giants Robots Smashing Into Other Giant Robots&lt;/a&gt;, where it was pitched as a theoretical handbook with practical examples all written in Ruby. I&#39;ll be going through the book and blogging about what I learn.
+&lt;/blockquote&gt;
+
+&lt;h2 class=&quot;blog-header-2&quot;&gt;What is a program?&lt;/h2&gt;
+&lt;h3 class=&quot;blog-header&quot;&gt;A program is...&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&quot;col s12&quot;&gt;
+    &lt;p&gt;
+      Basically a sequence of instructions given to the computer in order specify how to accomplish a given task. This task can range from something like
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hello, World!&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      to something with millions of lines of code all doing various complicated things. But we shouldn&#39;t write a program with the intention of doing something complicated and hard to understand&amp;mdash;the best programs spring forth from inspiration and are the concretization of ideas.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 class=&quot;blog-header&quot;&gt;Hey, I&#39;ve written a program. Now what?&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&quot;col s12&quot;&gt;
+    &lt;p&gt;
+      Maybe you just coded your first program, or perhaps it was your thousandth, but it&#39;s still always good to take a step back after you&#39;ve finished the job and look at what you&#39;ve done. Ask yourself: what did I just do (it happens more than you&#39;d think), or does this program actually do what I want it to?
+    &lt;/p&gt;
+    &lt;p&gt;
+      There are a few ways of answering these questions, each with varying complexity, practicality, and expressiveness. But the easiest one, and probably the one you&#39;ve been doing the whole time you were writing the program, is to just read the source code. If your program is small to moderately-sized, doing so allows you to see the structure of your program and how all of the pieces fit together. If your program is larger, maybe run through a few use cases and trace the code by hand. Just by reading the source code, I can usually find more than a few bugs, and sometimes I mark down spots where I know I will have to come back and refactor. But how do you understand programs on a higher level?
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;blog-header-2&quot;&gt;Syntax and Semantics&lt;/h2&gt;
+&lt;h3 class=&quot;blog-header&quot;&gt;Let&#39;s Get Theoretical&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&quot;col s12&quot;&gt;
+    &lt;p&gt;
+      In order to understand programs, we need to understand the languages in which they are written. And to do so, we require an understanding of two things: syntax and semantics.
+      The &lt;strong&gt;syntax&lt;/strong&gt; of a language describes its structure and appearance, and the &lt;strong&gt;semantics&lt;/strong&gt; details its meaning, and how its various constructs, such as words and phrases, fit together, and relate to the things they represent.
+    &lt;/p&gt;
+    &lt;p&gt;
+      Once you have the syntax and semantics of a language specified, you can do one of three things. The first thing is what Ruby does: create a reference implementation.
+    &lt;/p&gt;
+    &lt;p&gt;
+      A reference implementation is a programmatic specification of how that language should behave. For example, Ruby has MRI (Matz&#39;s Ruby Interpreter), which is basically the Ruby canon. Reference implementations are useful for describing languages becaue they explicitly show the outputs for given inputs.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The second thing one can do to describe a language is literally write out a formal description of that language. Some of the languages that have formal, written specifications include Java and ECMAScript. These documents are often quite deliberate and technical, and can include things such as formulas for how type inference works, or a description of the language&#39;s keywords.
+    &lt;/p&gt;
+    &lt;p&gt;
+      Or, if one is into this sort of thing, a language can be described mathematically. This is probably the most rigorous and obscure way to describe a language, but it is unambiguous and lends itself to a few different useful things, like automated analysis of the language or even proofs of program correctness.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 class=&quot;blog-header&quot;&gt;Syntax City&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&quot;col s12&quot;&gt;
+    &lt;p&gt;
+      As I said before, syntax describes the structure and appearance of a language. But more specifically, it describes how to actually &lt;strong&gt;write&lt;/strong&gt; the code for a given language, and specifies what a &quot;correct&quot; program looks like. It says you can&#39;t do something like
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      because there is nothing connecting that 3 to the 7&amp;mdash;it&#39;s not syntactically correct. It also provides rules on how to evaluate ambiguous code and for operator precedence. Like how we have the order of operations in math, Ruby&#39;s syntax dictates that
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      evaluates to 2.
+    &lt;/p&gt;
+    &lt;p&gt;
+      Even though syntax very clearly states what&#39;s right and wrong in any given programming language, we don&#39;t want to do all of that checking by hand. That&#39;s where the &lt;strong&gt;parser&lt;/strong&gt; comes in. It takes as input the source code and turns it into a structured representation of that program, an &lt;strong&gt;abstract syntax tree&lt;/strong&gt;. But there is no one way to understand the meaning behind a program given only the syntax.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;blog-header&quot;&gt;The Semantics&lt;/h3&gt;
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&quot;col s12&quot;&gt;
+    &lt;p&gt;
+       As was mentioned in the beginning of the article, you should be asking yourself: &quot;Does this program do what I want it to do?&quot; Just look at the inputs and see if the outputs are what you expect. But this can be taken to a higher level and provide a framework for analyzing what languages themselves do. That higher level is known as &lt;strong&gt;operational semantics&lt;/strong&gt;.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The operational semantics behind any language is a set of rules that govern how the constructs of that language interact and behave, and most often, these rules are written as if they would be run on an &lt;strong&gt;abstract machine&lt;/strong&gt;. This abstract machine allows us to explicitly capture and explain the behavior of a programming language.
+    &lt;/p&gt;
+    &lt;p&gt;
+      One way of creating an operational semantics is to use what is known as &lt;strong&gt;small-step semantics&lt;/strong&gt;, which is essentially an abstract machine that looks at the syntax of a program, reduces constructs and statements, and produces a final value. For example, a small-step semantics may state that in a series of nested function calls, they be executed in an inner-outer order. The small-step semantics of Ruby, for example, may state that
+      &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;inner&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;inside&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;middle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;middle &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;outer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;outer &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;middle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      evaluates to &quot;outer middle inside&quot; instead of something else, even though all potential versions are syntactically correct.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;blog-container&quot;&gt;
+  &lt;div class=&quot;col s12&quot;&gt;
+    &lt;p&gt;
+      We can see that there a few different ways of understanding what a program means, from highly rigorous and specific mathematical formulations to programmatic implementations. And to truly understand a programming language, one must know both the syntax and semantics, and how they relate to each other.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Mon, 17 Aug 2015 00:00:00 -0400</pubDate>
+        <link>caneroj1.github.io/ruby/theory/2015/08/17/the-meaning-of-programs.html</link>
+        <guid isPermaLink="true">caneroj1.github.io/ruby/theory/2015/08/17/the-meaning-of-programs.html</guid>
+        
+        
+        <category>ruby</category>
+        
+        <category>theory</category>
+        
+      </item>
     
       <item>
         <title>Go Scrabble, Part 1</title>
