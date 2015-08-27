@@ -39,7 +39,7 @@ js_file: post
     <p>
       Now we need to create the following subdirectories in our workspace.
       {% highlight ruby %}
-        mkdir $HOME/go bin src pkg
+        cd $HOME/go; mkdir bin src pkg
       {% endhighlight %}
     </p>
     <p>
@@ -50,7 +50,7 @@ js_file: post
     <p>
       The <strong>src</strong> directory should be structured based on the version control system you are using to version your code. For me, I use GitHub, so run the following in terminal
       {% highlight ruby %}
-        mkdir -i $HOME/go/src github.com/caneroj1
+        mkdir -p src/github.com/caneroj1
       {% endhighlight %}
     </p>
     <p>
