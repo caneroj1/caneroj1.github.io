@@ -43,6 +43,12 @@ Working with a database is often an integral part of developing software, and so
 <div class="blog-container">
   <div class="col s12">
     <p>
+      A SQL Join is a kind of operation that combines the information from two database tables
+      where certain conditions are met. Going back to the Amazon example, we could join the table holding
+      information about one's account to a table holding information about orders in order to get all of the information
+      for a user and their orders together.
+    </p>
+    <p>
       Before we can start doing any SQL, let's first create our table. I like Game of Thrones, so that's the theme of this post's SQL. It's important to note that
       I'm also using postgreSQL in all of the examples.
       {% highlight sql %}
@@ -66,9 +72,10 @@ Working with a database is often an integral part of developing software, and so
       {% highlight sql %}
       INSERT INTO houses (title)
       VALUES
-      ('Targaryen'),
-      ('Lannister'),
-      ('Stark');
+      ('House Targaryen'),
+      ('House Lannister'),
+      ('House Stark'),
+      ('House Baratheon');
 
       INSERT INTO characters (name, house_id)
       VALUES
@@ -76,7 +83,8 @@ Working with a database is often an integral part of developing software, and so
       ('Daenerys Targaryen', 1),
       ('Jaime Lannister', 2),
       ('Eddard Stark', 3),
-      ('Lyanna Stark', 3);
+      ('Lyanna Stark', 3),
+      ('Khal Drogo', NULL);
       {% endhighlight %}
 
       Cool.
@@ -84,11 +92,11 @@ Working with a database is often an integral part of developing software, and so
     <p>
       There are a few different kinds of joins in standard SQL. These include:
       <ul>
-        <li>Natural Join</li>
         <li>Inner Join</li>
         <li>Left Outer Join</li>
         <li>Right Outer Join</li>
         <li>Full Outer Join</li>
+        <li>Cross Join</li>
       </ul>
       Each join has its own tradeoffs and advantages, which we'll cover in turn. First up...
     </p>
@@ -96,12 +104,84 @@ Working with a database is often an integral part of developing software, and so
 </div>
 
 <h3 class="blog-header">
-  Natural Join
+  Inner Join
 </h3>
 
 <div class="blog-container">
   <div class="col s12">
     <p>
+      The Inner Join is a very common kind of join, and it has some important properties. For one,
+      the inner join doesn't select rows from the two tables if one of the attributes in the join condition is null.
+      Additionally, even if a field is not null, if the value of an attribute referenced in the join condition appears only
+      in one table, there will be no rows selected for that value.
+    </p>
+    <p>
+      Let's see a concrete example. The following SQL performs an inner join
+      on the characters and houses tables by house_id.
+      {% highlight sql %}
+      SELECT
+      c.name,
+      c.house_id,
+      h.id,
+      h.title
+      FROM characters AS c
+      INNER JOIN
+      houses AS h
+      ON c.house_id = h.id
+      {% endhighlight %}
+      The following table holds the results of running this query on our database.
+    </p>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>house_id</th>
+          <th>id</th>
+          <th>title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Aegon Targaryen</td>
+          <td>1</td>
+          <td>1</td>
+          <td>House Targaryen</td>
+        </tr>
+        <tr>
+          <td>Daenerys Targaryen</td>
+          <td>1</td>
+          <td>1</td>
+          <td>House Targaryen</td>
+        </tr>
+        <tr>
+          <td>Jaime Lannister</td>
+          <td>2</td>
+          <td>2</td>
+          <td>House Lannister</td>
+        </tr>
+        <tr>
+          <td>Eddard Stark</td>
+          <td>3</td>
+          <td>3</td>
+          <td>House Stark</td>
+        </tr>
+        <tr>
+          <td>Lyanna Stark</td>
+          <td>3</td>
+          <td>3</td>
+          <td>House Stark</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      We can see that the columns <strong>house_id</strong> and <strong>id</strong> match up for each row.
+      Each character's house_id matches up to id of each house in the houses table. Also, going back to the important properties
+      of the inner join, we can see that poor Khal Drogo is nowhere to be found. That's because he is a Dothraki and his house_id is null.
+      Also, House Baratheon doesn't show up in our results set either. Why? House Baratheon has no members in the characters table.
+    </p>
+    <p>
+      It's important to remember these behaviors when writing inner joins. One possible use case for joining on columns
+      that may be null is to remove all of the rows that have a null value for that column.
     </p>
   </div>
 </div>
