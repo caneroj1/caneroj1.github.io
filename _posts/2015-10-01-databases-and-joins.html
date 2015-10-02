@@ -1,0 +1,107 @@
+---
+layout: post
+title: "Databases: Joins"
+date: 2015-10-01
+categories: sql databases
+js_file: post
+---
+
+<blockquote>
+Working with a database is often an integral part of developing software, and so it is important to understand the language of databases just as you would understand Ruby or C++.
+</blockquote>
+
+<h2 class="blog-header-2">So what are they?</h2>
+<h3 class="blog-header">
+  The Basics
+</h3>
+
+<div class="blog-container">
+  <div class="col s12">
+    <p>
+      A database is just an organized collection of data used for
+      many different purposes, such as storing information for analysis or maintaining records of purchases.
+      The most popular databases today are <strong>relational</strong> databases, which means that there are
+      <strong>relationships</strong> between the data stored in the database. Let's use Amazon for an example. When one purchases
+      goods from Amazon, those transactions are added to your list of past orders. Basically, a single customer can <strong>have
+      many</strong> orders. There! We just defined a relationship, a <strong>one-to-many</strong> relationship..
+    </p>
+    <p>
+      Let's think about another kind of relationship. We all know that items that you see on Amazon often belong to categories. For example,
+      a gaming console could belong to an electronics category, as well as a gaming one. But each category can also have many items within it.
+      This leads to another kind of relationship, called a <strong>many-to-many</strong> relationship.
+    </p>
+    <p>
+      Now that we have a basic understanding of what databases are, let's move on to the main topic: joins!
+    </p>
+  </div>
+</div>
+
+<h3 class="blog-header">
+  Join Me and Learn
+</h3>
+
+<div class="blog-container">
+  <div class="col s12">
+    <p>
+      Before we can start doing any SQL, let's first create our table. I like Game of Thrones, so that's the theme of this post's SQL. It's important to note that
+      I'm also using postgreSQL in all of the examples.
+      {% highlight sql %}
+      CREATE TABLE houses (
+        id serial PRIMARY KEY,
+        title varchar(255)
+      );
+
+      CREATE TABLE characters (
+        id serial PRIMARY KEY,
+        name varchar(255),
+        house_id INTEGER REFERENCES houses (id)
+      );
+      {% endhighlight %}
+      This makes two tables, one called <strong>houses</strong> and the other called <strong>characters</strong>. Their attributes
+      are pretty simple, but it's important to note that the characters table has a foreign key reference to houses, meaning that each character's
+      house_id maps up to an entry in the houses table.
+    </p>
+    <p>
+      Now let's add some fake data in there.
+      {% highlight sql %}
+      INSERT INTO houses (title)
+      VALUES
+      ('Targaryen'),
+      ('Lannister'),
+      ('Stark');
+
+      INSERT INTO characters (name, house_id)
+      VALUES
+      ('Aegon Targaryen', 1),
+      ('Daenerys Targaryen', 1),
+      ('Jaime Lannister', 2),
+      ('Eddard Stark', 3),
+      ('Lyanna Stark', 3);
+      {% endhighlight %}
+
+      Cool.
+    </p>
+    <p>
+      There are a few different kinds of joins in standard SQL. These include:
+      <ul>
+        <li>Natural Join</li>
+        <li>Inner Join</li>
+        <li>Left Outer Join</li>
+        <li>Right Outer Join</li>
+        <li>Full Outer Join</li>
+      </ul>
+      Each join has its own tradeoffs and advantages, which we'll cover in turn. First up...
+    </p>
+  </div>
+</div>
+
+<h3 class="blog-header">
+  Natural Join
+</h3>
+
+<div class="blog-container">
+  <div class="col s12">
+    <p>
+    </p>
+  </div>
+</div>
