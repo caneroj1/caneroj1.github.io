@@ -1,44 +1,50 @@
----
-layout: home
-js_file: index
----
-
-<div class="row">
-  <div id="parallax-container" class="parallax-container">
-    <div class="parallax valign-wrapper">
-      <div class="full-width">
-        <h1 class="white-text center-align">
-          Joseph Canero
-        </h1>
-        <h3 class="white-text center-align">
-          Software Engineer
-        </h3>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hack/0.7.7/solarized-dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hack/0.7.7/hack.css">
+    <link rel="stylesheet" href="css/main.css"
+  </head>
+  <body class="hack solarized-dark">
+    <div class="container">
+      <div class="grid -center">
+        <div class="cell -8of14">
+          <h1 class="header">Joseph Canero</h1>
+          <h2>Links</h2>
+          <a href="https://github.com/caneroj1">Github</a>
+          <a href="https://twitter.com/JCanero">Twitter</a>
+          <a href="https://www.linkedin.com/in/josephcanero">LinkedIn</a>
+          <a href="resume/resume.pdf">Resume</a>
+        </div>
       </div>
-      <img class="responsive-img parallax-header" src="images/splash.png">
+      <div class="grid -center new-grid">
+        <div class="cell -8of14">
+          <h2>Languages</h1>
+          <ul>
+            <li>Skilled
+              <ul>
+                <li>C/C++</li>
+                <li>Haskell</li>
+                <li>Ruby</li>
+              </ul>
+            </li>
+            <li>Proficient
+              <ul>
+                <li>C#</li>
+                <li>Swift</li>
+                <li>Go</li>
+                <li>SQL</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h2>Interests</h2>
+          <ul>
+            <li>Functional Programming</li>
+            <li>Information Retrieval</li>
+            <li>Programming Languages</li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-  {% include splash_header.html %}
-  <div class="overflow">
-    <div class="col s12 m10 offset-m1 center-align">
-      <h2 class='section-title'>About Me</h2>
-      {% include index/about_me.html %}
-    </div>
-  </div>
-  <div class="overflow section-space lighten pad">
-    {% include index/more_details.html %}
-  </div>
-  <div class="overflow section-space center-align">
-    <h2>Projects</h2>
-    {% include projects/git_graph.html %}
-    {% include projects/musicians_wanted.html %}
-    {% include projects/git_recommender.html %}
-    {% include projects/dojob.html %}
-    {% include projects/valentines.html %}
-  </div>
-  <div class="overflow section-space lighten pad center-align">
-    {% include index/work.html %}
-  </div>
-  <div class="overflow section-space-reduced pad center-align">
-    {% include index/contact.html %}
-  </div>
-</div>
+  </body>
+</html>
